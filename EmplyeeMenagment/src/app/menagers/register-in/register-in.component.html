@@ -1,0 +1,175 @@
+<div class="modal modal-signin position-static d-block bg-dark py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow m">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2 click">Register In</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body p-5 pt-0">
+
+                <form [formGroup]="registerMenager" class="needs-validation">
+                    <div class="row g-3">
+
+                        <!-- first name -->
+                        <div class="col-sm-6 ">
+                            <div class=" form-floating mb-3">
+                                <input type="text" formControlName="firstName" class="form-control rounded-3"
+                                    id="firstName" placeholder="First Name" required>
+                                <label for="firstName"> First Name </label>
+                            </div>
+
+                            <ng-container
+                                *ngIf="registerMenager.controls['firstName'].errors && registerMenager.controls['firstName'].touched">
+                                <div *ngIf="registerMenager.controls['firstName'].errors['required']" class="invalid">
+                                    please enter first name.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!--family name  -->
+                        <div class="col-sm-6">
+                            <div class=" form-floating mb-3">
+                                <input type="text" formControlName="lastName" class="form-control rounded-3"
+                                    id="lastName" placeholder=" Family Name" required>
+                                <label for="lastName"> Family Name </label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['lastName'].errors && registerMenager.controls['lastName'].touched">
+                                <div *ngIf="registerMenager.controls['lastName'].errors['required']" class="invalid">
+                                    please enter last name.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- identity -->
+                        <div class="col-12">
+                            <div class="form-floating  mb-3 ">
+                                <input type="text" formControlName="identity" class="form-control rounded-3"
+                                    id="identity" placeholder="Identity" required>
+                                <label for="identity"> Identity</label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['identity'].errors && registerMenager.controls['identity'].touched">
+                                <div *ngIf="registerMenager.controls['identity'].errors['required']" class="invalid">
+                                    please enter identity.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- user name -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control rounded-3" id="floatingInput"
+                                    formControlName="userName" placeholder="User Name">
+                                <label for="floatingInput">User Name</label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['userName'].errors && registerMenager.controls['userName'].touched">
+                                <div *ngIf="registerMenager.controls['userName'].errors['required']" class="invalid">
+                                    User name is requieres.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- password -->
+                        <div class="input-group">
+                            <div class="form-floating mb-3">
+                                <input type="password" formControlName="password" placeholder="Password"
+                                    class="form-control rounded-3" id="password">
+                                <label for="password">Password</label>
+                                <div
+                                    *ngIf="registerMenager.controls['password'].errors && registerMenager.controls['password'].touched">
+                                    <ng-template
+                                        *ngIf="registerMenager.controls['password'].errors['required'] ;then requieredheck; else lengthCheck ">
+                                    </ng-template>
+                                    <ng-template #requieredheck>
+                                        <span class="invalid"> Password is requiered</span>
+                                    </ng-template>
+                                    <ng-template #lengthCheck>
+                                        <span class="invalid">Password must include at least 5 chars.</span>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- email -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="email" formControlName="email" class="form-control rounded-3" id="email"
+                                    placeholder="Email Adress">
+                                <label for="email">Email Adress </label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['email'].errors && registerMenager.controls['email'].touched">
+                                <div *ngIf="registerMenager.controls['email'].errors['required']" class="invalid">
+                                    Adress Email is requieres.
+                                </div>
+                                <div *ngIf="registerMenager.controls['email'].errors['email']" class="invalid">
+                                    Adress Email is not valid.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- Adress -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" formControlName="addres" class="form-control rounded-3" id="address"
+                                    placeholder="Adress" required>
+                                <label for="address">Adress</label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['addres'].errors && registerMenager.controls['addres'].touched">
+                                <div *ngIf="registerMenager.controls['addres'].errors['required']" class="invalid">
+                                    please fill the adress input.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- date of birth -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="date" placeholder="Date of birth" class="form-control rounded-3 "
+                                    formControlName="dateOfBirth" id="datOfBirth">
+                                <label for="datOfBirth">Date of birth</label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['dateOfBirth'].errors && registerMenager.controls['dateOfBirth'].touched">
+                                <div *ngIf="registerMenager.controls['dateOfBirth'].errors['required']" class="invalid">
+                                    please fill your date of birth.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- gender -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <select formControlName="kind" class="form-select rounded-3" id="country">
+                                    <option value="1">male</option>
+                                    <option value="2">female</option>
+                                </select>
+                                <label for="country">Gender</label>
+                            </div>
+                            <ng-container
+                                *ngIf="registerMenager.controls['kind'].errors && registerMenager.controls['kind'].touched">
+                                <div *ngIf="registerMenager.controls['kind'].errors['required']" class="invalid">
+                                    please fill your date of birth.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 sign" type="submit" (click)="save()"
+                        [disabled]="!registerMenager.valid">Sign In</button>
+                    <hr class="my-4">
+                    <h2 class="fs-5 fw-bold mb-3"> If you have already registered in <button class="notbt"
+                            (click)="login()">Click here</button> </h2>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

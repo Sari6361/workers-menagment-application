@@ -1,0 +1,45 @@
+<div class=" bg-dark">
+    <nav class="navbar bg-dark border-bottom border-body">
+        <div class="container-fluid back">
+            <div class="container-fluid head">
+
+                <div>
+
+                    <button type="button" (click)="toHomePage()" *ngIf="connected" class="bt btn btn-outline-light"
+                        aria-current="page">Home</button>
+
+                    <button type="button" (click)="addWorker()" *ngIf="connected" class="bt btn btn-outline-light"
+                        aria-current="page">Add
+                        Worker</button>
+
+                        <button type="button" (click)="allWorkers()" *ngIf="connected" class="bt btn btn-outline-light"
+                        aria-current="page">All Workers</button>
+
+                    <!-- <button  type="button" *ngIf="user.role==role" (click)="toAddCourse()" class="btn btn-outline-light" aria-current="page">Add Course</button> -->
+
+                </div>
+
+                <form class="d-flex">
+
+                    <button type="button" (click)="toLogin()" *ngIf="!connected"
+                        class="bt btn btn-outline-secondary bt">Log
+                        In</button>
+
+                    <button type="button" (click)="toRegisterIn()" *ngIf="!connected"
+                        class="bt btn btn-outline-secondary bt">Sign
+                        In</button>
+
+                    <button type="button" (click)="updateProfile()" *ngIf="connected"
+                        class="bt btn btn-outline-secondary bt">Update Profile</button>
+
+                    <button type="button" (click)="toLogout()" *ngIf="connected"
+                        class="bt btn btn-outline-secondary bt">Log
+                        Out</button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+
+</div>
