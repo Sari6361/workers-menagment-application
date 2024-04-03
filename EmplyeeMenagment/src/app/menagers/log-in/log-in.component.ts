@@ -28,6 +28,10 @@ export class LogInComponent implements OnInit {
     this._router.navigate([`menager/signin`]);
   }
 
+  public close(){
+    this._router.navigate([`home`]);
+  }
+
   constructor(private _router: Router, private _menagerService: MenagerService) { }
 
   ngOnInit(): void {

@@ -9,7 +9,7 @@ namespace Worker.Core.Services
 {
     public interface IWorkerService
     {
-        Task<IEnumerable<Entities.Employee>>? GetWorkersAsync(bool? status);
+        Task<IEnumerable<Entities.Employee>>? GetWorkersAsync(bool? status, int menagerId);
         Task<Entities.Employee>? GetWorkerByIdAsync(int id);
         Task<Entities.Employee>? AddWorkerAsync(Entities.Employee worker);
         Task<Entities.Employee>? UpdateWorkerAsync(int id, Entities.Employee worker);

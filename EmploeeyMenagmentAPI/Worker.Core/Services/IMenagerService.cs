@@ -14,5 +14,9 @@ namespace Worker.Core.Services
         Task<Menager>? GetMenagerByNameAndPassword(string name, string password);
         Task<Menager>? AddMenagerAsync(Menager menager);
         Task<Menager>? UpdateMenagerAsync(int id, Menager menager);
+
+       // Task<Menager>? AddWorkerToMenagerAsync(int menagerId, Employee e);
+       // Task<Menager>? UpdateWorkerAsync(int menagerId, int id,Employee e);
+       // Task<Menager>? UpdateWorkerStatusAsync(int menagerId, int id, bool status);
     }
 }

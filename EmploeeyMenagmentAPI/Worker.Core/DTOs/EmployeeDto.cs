@@ -19,6 +19,7 @@ namespace Worker.Core.DTOs
         public List<Role>? Roles { get; set; }
         public bool Status { get; set; }
         public Kind kind { get; set; }
+        public int MenagerId { get; set; }
 
     }
 }

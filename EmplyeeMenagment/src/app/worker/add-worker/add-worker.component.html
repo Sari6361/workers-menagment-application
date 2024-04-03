@@ -1,11 +1,10 @@
-<p> add-worker works!</p>
-
 <div class="modal modal-signin position-static d-block bg-dark py-5" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog container" role="document">
         <div class="modal-content rounded-4 shadow m">
             <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2 click">New Worker</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="close()"></button>
             </div>
 
             <div class="modal-body p-5 pt-0">
@@ -108,7 +107,8 @@
                         <!-- gender -->
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                                <select formControlName="kind" class="form-select rounded-3" id="country">
+                                <select formControlName="kind" class="form-select rounded-3" id="country"
+                                    aria-label="Default select example">
                                     <option value="1">male</option>
                                     <option value="2">female</option>
                                 </select>
@@ -130,8 +130,15 @@
                                     <!-- The repeated roles template -->
                                     <div class="col-10 ">
                                         <div class=" form-floating mb-3">
-                                            <input type="text" formControlName="name" class="form-control rounded-3"
-                                                id="role name-{{ $index }}" placeholder="First Name" required>
+                                            <!-- <input type="" formControlName="name" class="form-control rounded-3"
+                                                id="role name-{{ $index }}" placeholder="First Name" required> -->
+                                            <select formControlName="roleTypeId" class="form-control rounded-3" (change)="selectRoleType($index)"
+                                                id="role name-{{ $index }}" placeholder="First Name" #masterSelect>
+                                                <!-- <option value="{{0}}">choose role...</option> -->
+                                                @for (rt of rolesType; track $index) {
+                                                    <option #selected value="{{$index+1}}" id="option-{{$index+1}}">{{rt.name}}</option>
+                                                }
+                                            </select>
                                             <label for="role-{{ $index }}"> Role Name </label>
                                         </div>
                                     </div>
@@ -145,16 +152,18 @@
                                     </div>
                                     <br>
                                     <div class=" d-md-flex justify-content-md-end">
-                                        <button class="btn rounded-5 sign  me-md-2" (click)="removeRole($index)">Remove</button>
+                                        <button class="btn rounded-5 sign  me-md-2"
+                                            (click)="removeRole($index)">Remove</button>
                                     </div>
 
                                 </div>
                             </div>}
+                            <ng-container *ngIf="roles().controls.length < 1">
+                                <div class="invalid">
+                                    worker must have at least 1 role.
+                                </div>
+                            </ng-container>
 
-                            <!-- <template *ngFor="let role of roles().value; index as i">
-                               role: {{role}}
-                              
-                            </template> -->
                         </div>
                         <button class="btn btn-lg rounded-5 sign" (click)="addRole()">Add Role</button>
                     </div>

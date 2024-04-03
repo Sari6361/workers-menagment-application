@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private _router: Router, private _menagerService: MenagerService) { }
   ngOnInit(): void {
-    if (window && window.sessionStorage)
+    if (window && window.sessionStorage && sessionStorage.getItem("userName")) 
       var name = sessionStorage.getItem("userName");
     if (window && window.sessionStorage && sessionStorage.getItem(`${name}Token`))
       this.connected = true;

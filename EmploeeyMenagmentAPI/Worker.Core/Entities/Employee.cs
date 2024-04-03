@@ -22,6 +22,7 @@ namespace Worker.Core.Entities
         public bool Status { get; set; }
         public string? Email { get; set; }
         public string? Address { get; set; }
+        public int MenagerId { get; set; }  
 
     }
 }

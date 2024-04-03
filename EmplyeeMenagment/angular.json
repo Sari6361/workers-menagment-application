@@ -31,9 +31,11 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/@mescius/spread-sheets/styles/gc.spread.sheets.excel2016darkGray.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": ["node_modules/file-saver/dist/FileSaver.js"],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -97,9 +99,11 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/@mescius/spread-sheets/styles/gc.spread.sheets.excel2016darkGray.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/file-saver/dist/FileSaver.js"]
           }
         }
       }

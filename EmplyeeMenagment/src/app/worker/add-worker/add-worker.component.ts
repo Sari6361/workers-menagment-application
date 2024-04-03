@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WorkerService } from '../worker.service';
 import Swal from 'sweetalert2';
 import { Worker_ } from '../../Models/worker/worker.model';
-import { retry } from 'rxjs';
+import { RoleType } from '../../Models/rolesType/roleType.model';
+import { RoleTypeService } from '../roleType.service';
 
 @Component({
   selector: 'app-add-worker',
@@ -15,6 +16,9 @@ export class AddWorkerComponent implements OnInit {
 
   worker: FormGroup;
   workerToAdd: Worker_;
+  rolesType: RoleType[];
+  @ViewChild('selected') selected!: ElementRef;
+  @ViewChild('masterSelect') masterSelect!: ElementRef;
 
   public save() {
 
@@ -33,16 +37,22 @@ export class AddWorkerComponent implements OnInit {
       denyButtonText: `Don't save`
     }).then((result) => {
       if (result.isConfirmed) {
-        this._workerService.add(this.workerToAdd).catch((err) => {
-          Swal.fire({
-            title: `Oh ${this.workerToAdd.firstName}`,
-            text: "error in saving worker please try agsain letaer",
-            icon: "error"
-          });
-        });
+        this._workerService.add(this.workerToAdd).subscribe({
+          next: (data) => {
+            Swal.fire(data.firstName + " added successfully!", "", "success");
+            this._router.navigate([`/`]);
+          },
+          error: (err) => {
+            console.log("add", err);
 
-        Swal.fire("added successfully!", "", "success");
-        this._router.navigate([`/`]);
+            //check if error equals to exit??? 
+            Swal.fire({
+              title: `Oh ${this.workerToAdd.firstName}`,
+              text: "error in saving worker please try agsain letaer",
+              icon: "error"
+            });
+          }
+        })
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
       }
@@ -50,7 +60,6 @@ export class AddWorkerComponent implements OnInit {
   }
 
   roles(): FormArray {
-    console.log("roles",this.worker.get('roles').value);
     return this.worker.get('roles') as FormArray;
   }
 
@@ -65,13 +74,25 @@ export class AddWorkerComponent implements OnInit {
   newRole() {
     return this._fromBuilder.group({
       'id': new FormControl(0),
-      'name': new FormControl("", Validators.required),
+      'roleTypeId': new FormControl(0, Validators.required),
       'menagment': new FormControl(false, Validators.required),
       'stratDate': new FormControl(new Date(), Validators.required),
     });
   }
 
-  constructor(private _router: Router, private _workerService: WorkerService, private _fromBuilder: FormBuilder) { }
+  public close() {
+    this._router.navigate([`home`]);
+  }
+
+  public selectRoleType(index:number){
+   var el = document.getElementById(`option${index}`);
+   this.selected.nativeElement.disabled = true
+   console.log("ele",  this.selected.nativeElement);
+   console.log("elemnent",this.masterSelect.nativeElement )
+   
+  }
+
+  constructor(private _router: Router, private _workerService: WorkerService, private _roleTypeService: RoleTypeService, private _fromBuilder: FormBuilder) { }
   ngOnInit(): void {
     this.worker = this._fromBuilder.group({
       'id': new FormControl(0),
@@ -86,6 +107,12 @@ export class AddWorkerComponent implements OnInit {
       'dateOfBirth': new FormControl("", [Validators.required]),
       'roles': this._fromBuilder.array([])
     });
+    this._roleTypeService.getRolesType().subscribe({
+      next: (data) => {
+        this.rolesType = data;
+      },
+      error: (err) => console.log("error in get roles type", err)
+    })
   }
 
 }

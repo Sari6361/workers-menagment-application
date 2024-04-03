@@ -9,7 +9,7 @@ namespace Worker.Core.Repositories
 {
     public interface IWorkerRepository
     {
-        Task<IEnumerable<Employee>> GetWorkersAsync(bool? status);
+        Task<IEnumerable<Employee>> GetWorkersAsync(bool? status, int menagerId);
         Task<Employee>? GetWorkerByIdAsync(int id);
         Task<Employee>? AddWorkerAsync(Employee worker);
         Task<Employee>? UpdateWorkerAsync(int id, Employee worker);

@@ -8,7 +8,9 @@ namespace Worker.Data
     {
         public DbSet<Menager> Menagers { get; set; }
 
-        public DbSet<Core.Entities.Employee> Workers { get; set; }
+        public DbSet<Employee> Workers { get; set; }
+
+        public DbSet<RoleType> RolesType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

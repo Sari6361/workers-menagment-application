@@ -12,14 +12,15 @@ namespace Worker.Data.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Employee>> GetWorkersAsync(bool? status)
+        public async Task<IEnumerable<Employee>> GetWorkersAsync(bool? status, int menagerId)
         {
-            return await _context.Workers.Where(w => w.Status == status || status == null).Include(w => w.Roles).ToListAsync();
+            return await _context.Workers.Where(w =>w.MenagerId == menagerId &&( w.Status == status || status == null)).Include(w => w.Roles).ToListAsync();
         }
 
         public async Task<Employee> GetWorkerByIdAsync(int id)
         {
-            return await _context.Workers.FindAsync(id);
+            var workers = _context.Workers.Include(w => w.Roles).ToList();
+            return workers?.Find(w=>w.Id ==id);
         }
 
         public async Task<Employee> AddWorkerAsync(Employee worker)

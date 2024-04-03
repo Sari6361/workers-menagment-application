@@ -11,6 +11,7 @@ namespace Worker.Service
         {
             _repository = repository;
         }
+
         public List<Menager> GetMenagers() => _repository.GetMenagers();
       
 
@@ -33,5 +34,17 @@ namespace Worker.Service
         {
             return await _repository.UpdateMenagerAsync(id, menager);
         }
+        //public async Task<Menager>? AddWorkerToMenagerAsync(int menagerId, Employee e)
+        //{
+        //    return await _repository.AddWorkerToMenagerAsync(menagerId, e);
+        //}
+        //public async Task<Menager>? UpdateWorkerAsync(int menagerId, int id, Employee e)
+        //{
+        //    return await _repository.UpdateWorkerAsync(menagerId, id, e);   
+        //}
+        //public async Task<Menager>? UpdateWorkerStatusAsync(int menagerId, int id, bool status)
+        //{
+        //    return await _repository.UpdateWorkerStatusAsync(menagerId, id, status);
+        //}
     }
 }

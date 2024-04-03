@@ -11,5 +11,6 @@ export class Worker_{
     status:boolean;
     startDate:Date;
     dateOfBirth:Date;
-    roles:Array<Role>
+    roles:Array<Role>;
+    menagerId:number;
 }

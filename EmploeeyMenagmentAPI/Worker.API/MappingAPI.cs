@@ -12,6 +12,8 @@ namespace Worker.API
             CreateMap<Menager, MenagerPostModel>().ReverseMap();
             CreateMap<Menager, MenagerPutModel>().ReverseMap();
             CreateMap<Menager, LoginModel>().ReverseMap();
+            CreateMap<Menager, Menager>().ReverseMap();
+            CreateMap<Employee, Employee>().ReverseMap();
         }
     }
 }

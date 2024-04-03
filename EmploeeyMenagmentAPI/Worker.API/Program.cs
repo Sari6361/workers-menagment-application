@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Worker.API;
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,8 @@ builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
 builder.Services.AddScoped<IWorkerService, WorkerService>();
 builder.Services.AddScoped<IMenagerRepository, MenagerRepository>();
 builder.Services.AddScoped<IMenagerService, MenagerService>();
+builder.Services.AddScoped<IRoleTypeRepository, RoleTypeRepository>();
+builder.Services.AddScoped<IRoleTypeService, RoleTypeService>();
 
 builder.Services.AddDbContext<DataContext>();
 

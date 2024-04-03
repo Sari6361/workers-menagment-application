@@ -14,5 +14,10 @@ namespace Worker.Core.Repositories
         Task<Menager>? GetMenagerByNameAndPasswordAsync(string name, string password);
         Task<Menager>? AddMenagerAsync(Menager m);
         Task<Menager>? UpdateMenagerAsync(int id, Menager m);
+
+        //Task<Menager>? AddWorkerToMenagerAsync(int menagerId,Employee e);
+        //Task<Menager>? UpdateWorkerAsync(int menagerId, int id, Employee e);
+        //Task<Menager>? UpdateWorkerStatusAsync(int menagerId, int id, bool status);
+
     }
 }

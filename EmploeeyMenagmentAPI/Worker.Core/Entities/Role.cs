@@ -11,7 +11,7 @@ namespace Worker.Core.Entities
     public class Role
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int roleId { get; set; }
         public bool Menagment { get; set; }
         public DateTime dateStart { get; set; }
     }

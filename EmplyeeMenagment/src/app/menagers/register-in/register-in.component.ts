@@ -43,6 +43,10 @@ export class RegisterInComponent implements OnInit {
       this._router.navigate([`/`]);
   }
 
+  public close(){
+    this._router.navigate([`home`]);
+  }
+
   constructor(private _menagerService: MenagerService, private _router: Router) { }
 
   ngOnInit(): void {

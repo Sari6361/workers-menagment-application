@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 
 @Component({
@@ -6,6 +6,15 @@ import { HeaderComponent } from "../header/header.component";
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+    name: string;
+
+    ngOnInit(): void {
+        if (window && window.sessionStorage && sessionStorage.getItem("userName"))
+            this.name = "Hello " + sessionStorage.getItem("userName");
+        else
+            this.name = '';
+    }
+
 
 }

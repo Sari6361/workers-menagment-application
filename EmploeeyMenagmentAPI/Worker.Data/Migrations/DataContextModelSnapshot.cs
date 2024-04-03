@@ -48,7 +48,7 @@ namespace Worker.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MenagerId")
+                    b.Property<int>("MenagerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
@@ -121,12 +121,11 @@ namespace Worker.Data.Migrations
                     b.Property<bool>("Menagment")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("dateStart")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("roleId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -135,11 +134,29 @@ namespace Worker.Data.Migrations
                     b.ToTable("Role");
                 });
 
+            modelBuilder.Entity("Worker.Core.Entities.RoleType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RolesType");
+                });
+
             modelBuilder.Entity("Worker.Core.Entities.Employee", b =>
                 {
                     b.HasOne("Worker.Core.Entities.Menager", null)
                         .WithMany("Workers")
-                        .HasForeignKey("MenagerId");
+                        .HasForeignKey("MenagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Worker.Core.Entities.Role", b =>

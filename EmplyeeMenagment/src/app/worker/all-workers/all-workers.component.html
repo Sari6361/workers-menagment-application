@@ -1,43 +1,59 @@
-<p>all-workers works!</p>
-<div>
-    @for(worker of workers; track $index){
+<br />
+<div class="bg-dark h">
+  <br />
 
-        
+  <div class="d-flex master justify-content-between container bg-dark">
+    <button class="btn btn-outline-success" (click)="exportList()">Export List</button>
 
-    }
+    <form class="d-flex justify-content-end" role="search">
+      <input class="form-control search" type="search" placeholder="Search...." aria-label="Search" #searchText>
+      <button class="btn btn-outline-success" (click)="search(searchText.value)" type="submit">Search</button>
+    </form>
+  </div>
+
+  <br />
+  <br />
+
+  <table class="table table-secondary" id="workers">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Identity</th>
+        <th scope="col">Start Date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(worker of workers; track $index){
+      <tr>
+        <th scope="row">{{$index}}</th>
+        <td>{{worker.firstName}}</td>
+        <td>{{worker.lastName}}</td>
+        <td>{{worker.identity}}</td>
+        <td>{{worker.startDate | date: "dd-MM-YYYY" }}</td>
+        <td>
+          <button class="btn btn-primary mr-1 delbtn" (click)="deleteWorker(worker.id)"> <i
+              class="bi bi-trash3-fill"></i></button>
+        </td>
+        <td>
+          <button class="btn  btn-primary mr-1 updatebtn" (click)="editWorker($index)"><i
+              class="bi bi-pencil-square"></i> </button>
+        </td>
+      <!--detailes-->  
+        <td>
+          <button class="btn  btn-primary mr-1 updatebtn" (click)="moreDetailes($index)"><i
+              class="bi bi-pencil-square"></i> </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <br><br>
+  <div *ngIf="toUpdate" class="container">
+    <app-update-worker [worker]="selectedWorkerEdit" />
+  </div>
 </div>
-
-<!-- <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-<!--  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-      </div>  -->

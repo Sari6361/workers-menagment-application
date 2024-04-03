@@ -48,16 +48,16 @@ namespace Worker.API.Controllers
             return Ok(menagerDto);
         }
 
-        [HttpGet("workers/{id}")]
-        public async Task<ActionResult<EmployeeDto[]>> GetWorkers(int id)
-        {
-            var menager = await _menagerService.GetMenagerByIdAsync(id);
-            if (menager is null)
-                return NotFound();
-            var menagerDto = _mapper.Map<MenagerDto>(menager);
-            var menagersEmployee = _mapper.Map<IEnumerable<EmployeeDto>>(menagerDto.Workers);
-            return Ok(menagersEmployee);
-        }
+        //[HttpGet("{id}/workers")]
+        //public async Task<ActionResult<EmployeeDto[]>> GetWorkers(int id)
+        //{
+        //    var menager = await _menagerService.GetMenagerByIdAsync(id);
+        //    if (menager is null)
+        //        return NotFound();
+        //    var menagerDto = _mapper.Map<MenagerDto>(menager);
+        //    var menagersEmployee = _mapper.Map<IEnumerable<EmployeeDto>>(menagerDto.Workers);
+        //    return Ok(menagersEmployee);
+        //}
 
 
         // POST api/<MenagerController>
@@ -122,5 +122,42 @@ namespace Worker.API.Controllers
             var menagerDto = _mapper.Map<MenagerDto>(updatedMenager);
             return Ok(menagerDto);
         }
+
+
+        //[HttpPut("{id}/workers/{workerId}")]
+        //public async Task<ActionResult<MenagerDto>> Put(int id, int workerId, [FromBody] EmployeePutModel e)
+        //{
+        //    var employeeToUpdate = _mapper.Map<Employee>(e);
+
+        //    var updatedMenager = await _menagerService.UpdateWorkerAsync(id,workerId, employeeToUpdate);
+        //    if (updatedMenager is null)
+        //        return NotFound();
+
+        //    var menagerDto = _mapper.Map<MenagerDto>(updatedMenager);
+        //    return Ok(menagerDto);
+        //}
+
+        //[HttpPut("{id}/workers/{workerId}/status")]
+        //public async Task<ActionResult<MenagerDto>> Put(int id, int workerId, [FromBody] bool status)
+        //{
+        //    var updatedMenager = await _menagerService.UpdateWorkerStatusAsync(id, workerId, status);
+        //    if (updatedMenager is null)
+        //        return NotFound();
+
+        //    var menagerDto = _mapper.Map<MenagerDto>(updatedMenager);
+        //    return Ok(menagerDto);
+        //}
+
+        //[HttpPost("{id}/addWorker")]
+        //public async Task<ActionResult<Employee>> Post(int id, [FromBody] Employee e)
+        //{
+        //    var menager = await _menagerService.AddWorkerToMenagerAsync(id, e);
+        //    if (menager is null)
+        //        return NotFound();
+        //    return Ok(menager);
+        //}
+
+
+
     }
 }

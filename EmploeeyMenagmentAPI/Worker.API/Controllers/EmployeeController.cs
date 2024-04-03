@@ -25,10 +25,10 @@ namespace Worker.API.Controllers
         }
 
         // GET: api/<WorkerController>
-        [HttpGet]
-        public async Task<IEnumerable<EmployeeDto>> Get(bool? status)
+        [HttpGet("{menagerId}/{status}")]
+        public async Task<IEnumerable<EmployeeDto>> Get(bool? status, int menagerId)
         {
-            var workers = await _service.GetWorkersAsync(status);
+            var workers = await _service.GetWorkersAsync(status, menagerId);
             return _mapper.Map<IEnumerable<EmployeeDto>>(workers);
         }
 
@@ -45,8 +45,13 @@ namespace Worker.API.Controllers
 
         // POST api/<WorkerController>
         [HttpPost]
-        public async Task<ActionResult<Employee>> Post([FromBody] Employee e)
+        public async Task<IActionResult> Post([FromBody] Employee e)
         {
+            var workers = await _service.GetWorkersAsync(true, e.MenagerId);
+            var exit= workers?.FirstOrDefault(c => (c.Identity is null || c.Identity.Equals(e.Identity)));
+            if (exit is not null)
+                return Unauthorized(new { Error = "Exit" });
+
             var addedEmployee = await _service.AddWorkerAsync(e);
             if (addedEmployee is null)
                 return BadRequest();
@@ -73,7 +78,7 @@ namespace Worker.API.Controllers
         }
 
         // PUT api/<WorkerController>/5
-        [HttpPut("{id}/status")]
+        [HttpPut("{id}/{status}")]
         public async Task<ActionResult<Employee>> Put(int id, bool status)
         {
             var employeeToUpdate = await _service.GetWorkerByIdAsync(id);

@@ -2,7 +2,7 @@
 
 namespace Worker.API.Models
 {
-    public class EmployeePutModel
+    public class EmployeePutModel 
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -13,5 +13,6 @@ namespace Worker.API.Models
         public string Identity { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
+        public int MenagerId { get; set; }
     }
 } 

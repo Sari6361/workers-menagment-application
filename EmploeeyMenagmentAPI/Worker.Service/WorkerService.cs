@@ -8,6 +8,7 @@ using Worker.Core.Entities;
 using Worker.Core.Repositories;
 using Worker.Core.Services;
 
+
 namespace Worker.Service
 {
 
@@ -18,25 +19,25 @@ namespace Worker.Service
         {
             _workerRepository = repository;
         }
-        public async Task<IEnumerable<Core.Entities.Employee>> GetWorkersAsync(bool? status)
+        public async Task<IEnumerable<Employee>> GetWorkersAsync(bool? status, int menagerId)
         {
-            return await _workerRepository.GetWorkersAsync(status);
+            return await _workerRepository.GetWorkersAsync(status, menagerId);
         }
-        public Task<Core.Entities.Employee>? GetWorkerByIdAsync(int id)
+        public Task<Employee>? GetWorkerByIdAsync(int id)
         {
            return _workerRepository.GetWorkerByIdAsync(id);
         }
-        public async Task<Core.Entities.Employee> AddWorkerAsync(Core.Entities.Employee worker)
+        public async Task<Employee> AddWorkerAsync(Employee worker)
         {
             return await _workerRepository.AddWorkerAsync(worker);
         }
 
-        public Task<Core.Entities.Employee>? UpdateWorkerAsync(int id, Core.Entities.Employee worker)
+        public Task<Employee>? UpdateWorkerAsync(int id, Employee worker)
         {
             return _workerRepository.UpdateWorkerAsync(id, worker);
         }
 
-        public Task<Core.Entities.Employee>? UpdateWorkerStatusAsync(int id, bool status)
+        public Task<Employee>? UpdateWorkerStatusAsync(int id, bool status)
         {
            return _workerRepository.UpdateWorkerStatusAsync(id, status);
         }
