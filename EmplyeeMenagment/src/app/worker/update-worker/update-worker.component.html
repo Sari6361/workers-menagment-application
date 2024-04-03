@@ -1,0 +1,176 @@
+<p>update-worker works!</p>
+<!-- form -->
+
+<div class="modal modal-signin position-static d-block bg-dark py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog container" role="document">
+        <div class="modal-content rounded-4 shadow m">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2 click">New Worker</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+            </div>
+
+            <div class="modal-body p-5 pt-0">
+
+                <form [formGroup]="workerForm" class="needs-validation">
+                    <div class="row g-3">
+
+                        <!-- first name -->
+                        <div class="col-sm-6 ">
+                            <div class=" form-floating mb-3">
+                                <input type="text" formControlName="firstName" class="form-control rounded-3"
+                                    id="firstName" placeholder="First Name" required>
+                                <label for="firstName"> First Name </label>
+                            </div>
+
+                            <ng-container
+                                *ngIf="workerForm.controls['firstName'].errors && workerForm.controls['firstName'].touched">
+                                <div *ngIf="workerForm.controls['firstName'].errors['required']" class="invalid">
+                                    please enter first name.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!--family name  -->
+                        <div class="col-sm-6">
+                            <div class=" form-floating mb-3">
+                                <input type="text" formControlName="lastName" class="form-control rounded-3"
+                                    id="lastName" placeholder=" Family Name" required>
+                                <label for="lastName"> Family Name </label>
+                            </div>
+                            <ng-container
+                                *ngIf="workerForm.controls['lastName'].errors && workerForm.controls['lastName'].touched">
+                                <div *ngIf="workerForm.controls['lastName'].errors['required']" class="invalid">
+                                    please enter last name.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- identity -->
+                        <div class="col-12">
+                            <div class="form-floating  mb-3 ">
+                                <input type="text" formControlName="identity" class="form-control rounded-3"
+                                    id="identity" placeholder="Identity" required>
+                                <label for="identity"> Identity</label>
+                            </div>
+                            <ng-container
+                                *ngIf="workerForm.controls['identity'].errors && workerForm.controls['identity'].touched">
+                                <div *ngIf="workerForm.controls['identity'].errors['required']" class="invalid">
+                                    please enter identity.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- email -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="email" formControlName="email" class="form-control rounded-3" id="email"
+                                    placeholder="Email Adress">
+                                <label for="email">Email Adress </label>
+                            </div>
+                            <ng-container *ngIf="workerForm.controls['email'].errors && workerForm.controls['email'].touched">
+                                <div *ngIf="workerForm.controls['email'].errors['required']" class="invalid">
+                                    Adress Email is requieres.
+                                </div>
+                                <div *ngIf="workerForm.controls['email'].errors['email']" class="invalid">
+                                    Adress Email is not valid.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- Adress -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" formControlName="addres" class="form-control rounded-3" id="address"
+                                    placeholder="Adress" required>
+                                <label for="address">Adress</label>
+                            </div>
+                            <ng-container *ngIf="workerForm.controls['addres'].errors && workerForm.controls['addres'].touched">
+                                <div *ngIf="workerForm.controls['addres'].errors['required']" class="invalid">
+                                    please fill the adress input.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- date of birth -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="date" placeholder="Date of birth" class="form-control rounded-3 "
+                                    formControlName="dateOfBirth" id="datOfBirth">
+                                <label for="datOfBirth">Date of birth</label>
+                            </div>
+                            <ng-container
+                                *ngIf="workerForm.controls['dateOfBirth'].errors && workerForm.controls['dateOfBirth'].touched">
+                                <div *ngIf="workerForm.controls['dateOfBirth'].errors['required']" class="invalid">
+                                    please fill your date of birth.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- gender -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <select formControlName="kind" class="form-select rounded-3" id="country">
+                                    <option value="1">male</option>
+                                    <option value="2">female</option>
+                                </select>
+                                <label for="country">Gender</label>
+                            </div>
+                            <ng-container *ngIf="workerForm.controls['kind'].errors && workerForm.controls['kind'].touched">
+                                <div *ngIf="workerForm.controls['kind'].errors['required']" class="invalid">
+                                    please fill your date of birth.
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <!-- roles -->
+                        <div class="col-12" formArrayName="roles">
+
+                            @for(role of roles().controls; track $index){
+                            <div class="form-group card c">
+                                <div [formGroupName]="$index" class="card-body">
+                                    <!-- The repeated roles template -->
+                                    <div class="col-10 ">
+                                        <div class=" form-floating mb-3">
+                                            <input type="text" formControlName="name" class="form-control rounded-3"
+                                                id="role name-{{ $index }}" placeholder="First Name" required>
+                                            <label for="role-{{ $index }}"> Role Name </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" formControlName="menagment"
+                                            [value]="true" id="check">
+                                        <label class="form-check-label" for="check">
+                                            Is the position administrative?
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <div class=" d-md-flex justify-content-md-end">
+                                        <button class="btn rounded-5 sign  me-md-2"
+                                            (click)="removeRole($index)">Remove</button>
+                                    </div>
+
+                                </div>
+                            </div>}
+                            <ng-container *ngIf="roles().controls.length < 1">
+                                <div class="invalid">
+                                    worker must have at least 1 role.
+                                </div>
+                            </ng-container>
+
+                        </div>
+                        <button class="btn btn-lg rounded-5 sign" (click)="addRole()">Add Role</button>
+                    </div>
+                    <br>
+                    <br>
+
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 sign" type="submit" (click)="save()"
+                        [disabled]="!workerForm.valid">Update</button>
+                 
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
