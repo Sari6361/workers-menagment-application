@@ -17,7 +17,9 @@ export class WorkerService {
   }
 
   public add(worker: Worker_): Observable<Worker_> {
-    return this._http.post<Worker_>(`https://localhost:7141/api/Employee`, worker, { 'headers': this.header });
+    console.log(this.header);
+    
+    return this._http.post<Worker_>(`https://localhost:7141/api/Employee`, worker,{ 'headers': this.header });
   }
 
   public update(worker: Worker_): Observable<Worker_> {

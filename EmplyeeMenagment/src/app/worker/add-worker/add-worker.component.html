@@ -133,10 +133,10 @@
                                             <!-- <input type="" formControlName="name" class="form-control rounded-3"
                                                 id="role name-{{ $index }}" placeholder="First Name" required> -->
                                             <select formControlName="roleTypeId" class="form-control rounded-3" (change)="selectRoleType($index)"
-                                                id="role name-{{ $index }}" placeholder="First Name" #masterSelect>
-                                                <!-- <option value="{{0}}">choose role...</option> -->
+                                                id="role name-{{ $index }}" placeholder="First Name" >
+                                                <option value=0 >choose role...</option>
                                                 @for (rt of rolesType; track $index) {
-                                                    <option #selected value="{{$index+1}}" id="option-{{$index+1}}">{{rt.name}}</option>
+                                                    <option [disabled]="" value={{$index+1}} id="option-{{$index+1}}">{{rt.name}}</option>
                                                 }
                                             </select>
                                             <label for="role-{{ $index }}"> Role Name </label>

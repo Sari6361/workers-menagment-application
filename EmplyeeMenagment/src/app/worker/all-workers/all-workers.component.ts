@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { WorkerService } from '../worker.service';
 import { Worker_ } from '../../Models/worker/worker.model';
 import * as XLSX from 'xlsx';
@@ -15,6 +15,7 @@ export class AllWorkersComponent implements OnInit {
   selectedWorkerDetailes: Worker_;
   toUpdate: boolean = false;
   filter: boolean = false;
+  @ViewChild('searchText') searchText!: ElementRef;
 
   editWorker(index: number) {
     this.toUpdate = true;
@@ -33,19 +34,16 @@ export class AllWorkersComponent implements OnInit {
 
   search(value: string) {
     //filter the workers list
-    console.log("search::", value);
-
     this.filter = true;
-    this.workers = this.workers.filter(w => {
-      (w.firstName.includes(value) || w.lastName.includes(value) || w.identity.includes(value));
-      console.log("firstname", (w.firstName.includes(value) || w.lastName.includes(value) || w.identity.includes(value)));
-    });
-    console.log("after filter ", this.workers);
+    this.workers = this.workers.filter(w => 
+      w.firstName.includes(value) || w.lastName.includes(value) || w.identity.includes(value));
+      this.filter=false;
   }
 
   reset() {
     this.filter = false;
     let menagerId = Number(sessionStorage.getItem("userId"));
+    this.searchText.nativeElement.value='';
     this._workerService.getWorkers(menagerId).subscribe({
       next: (data) => {
         this.workers = data;

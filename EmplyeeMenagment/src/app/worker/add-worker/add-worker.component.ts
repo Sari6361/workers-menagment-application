@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Worker_ } from '../../Models/worker/worker.model';
 import { RoleType } from '../../Models/rolesType/roleType.model';
 import { RoleTypeService } from '../roleType.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-add-worker',
@@ -90,6 +91,9 @@ export class AddWorkerComponent implements OnInit {
    console.log("ele",  this.selected.nativeElement);
    console.log("elemnent",this.masterSelect.nativeElement )
    
+  }
+
+  public includeInList(index :number){
   }
 
   constructor(private _router: Router, private _workerService: WorkerService, private _roleTypeService: RoleTypeService, private _fromBuilder: FormBuilder) { }

@@ -3,11 +3,12 @@
   <br />
 
   <div class="d-flex master justify-content-between container bg-dark">
-    <button class="btn btn-outline-success" (click)="exportList()">Export List</button>
+    <button class="btn btn-outline-light bt" (click)="exportList()">Export List</button>
 
     <form class="d-flex justify-content-end" role="search">
       <input class="form-control search" type="search" placeholder="Search...." aria-label="Search" #searchText>
-      <button class="btn btn-outline-success" (click)="search(searchText.value)" type="submit">Search</button>
+      <button class="btn btn-outline-light bt" (click)="search(searchText.value)" type="submit">Search</button>
+      <button class="btn btn-outline-light bt" (click)="reset()" type="submit">Reset</button>
     </form>
   </div>
 
@@ -24,6 +25,7 @@
         <th scope="col">Start Date</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -34,17 +36,16 @@
         <td>{{worker.lastName}}</td>
         <td>{{worker.identity}}</td>
         <td>{{worker.startDate | date: "dd-MM-YYYY" }}</td>
+        <!--detailes-->  
+          <td>
+            <button class="btn  btn-primary mr-1 updatebtn" (click)="moreDetailes($index)">More Details</button>
+          </td>
         <td>
           <button class="btn btn-primary mr-1 delbtn" (click)="deleteWorker(worker.id)"> <i
               class="bi bi-trash3-fill"></i></button>
         </td>
         <td>
           <button class="btn  btn-primary mr-1 updatebtn" (click)="editWorker($index)"><i
-              class="bi bi-pencil-square"></i> </button>
-        </td>
-      <!--detailes-->  
-        <td>
-          <button class="btn  btn-primary mr-1 updatebtn" (click)="moreDetailes($index)"><i
               class="bi bi-pencil-square"></i> </button>
         </td>
       </tr>
