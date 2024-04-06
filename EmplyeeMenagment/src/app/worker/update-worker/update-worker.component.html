@@ -75,12 +75,12 @@
                     <!-- Adress -->
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" formControlName="addres" class="form-control rounded-3" id="address"
-                                placeholder="Adress" required>
-                            <label for="address">Adress</label>
+                            <input type="text" formControlName="address" class="form-control rounded-3" id="address"
+                                placeholder="Address" required>
+                            <label for="address">Address</label>
                         </div>
-                        <ng-container *ngIf="workerForm.controls['addres'].errors && workerForm.controls['addres'].touched">
-                            <div *ngIf="workerForm.controls['addres'].errors['required']" class="invalid">
+                        <ng-container *ngIf="workerForm.controls['address'].errors && workerForm.controls['address'].touched">
+                            <div *ngIf="workerForm.controls['address'].errors['required']" class="invalid">
                                 please fill the adress input.
                             </div>
                         </ng-container>
@@ -95,15 +95,24 @@
                                 <!-- The repeated roles template -->
                                 <div class="col-10 ">
                                     <div class=" form-floating mb-3">
-                                        <select formControlName="roleTypeId" class="form-control rounded-3" 
+                                        <select formControlName="roleTypeId" class="form-control rounded-3"
+                                            #selectList (change)="pushRole(selectList.value)"
                                             id="role name-{{ $index }}">
-                                            <option value=0 >choose role...</option>
+                                            <option value=-1>choose role...</option>
                                             @for (rt of rolesType; track $index) {
-                                                <option [disabled]="rolesTypeSelected.includes($index)" value={{$index+1}} id="option-{{$index+1}}" (select)="rolesTypeSelected.push($index)">{{rt.name}}</option>
+                                            <option [disabled]="checkRoleExit(rt.id)" value={{$index+1}}
+                                                id="option-{{$index+1}}">{{rt.name}}</option>
                                             }
                                         </select>
-                                        <label for="role-{{ $index }}"> </label>
+                                        <label for="role-{{ $index }}">Role Type </label>
                                     </div>
+                                    <ng-container
+                                        *ngIf="roles().controls[$index].get('roleTypeId').errors && roles().controls[$index].get('roleTypeId').touched">
+                                        <div *ngIf="roles().controls[$index].get('roleTypeId').errors['required']"
+                                            class="invalid">
+                                            please fill your Role-Type.
+                                        </div>
+                                    </ng-container>
                                 </div>
 
                                 <div class="form-check">

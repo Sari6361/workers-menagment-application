@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Worker_ } from '../Models/worker/worker.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { workerModel } from '../Models/worker/WorkerModel.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class WorkerService {
     return this._http.post<Worker_>(`https://localhost:7141/api/Employee`, worker,{ 'headers': this.header });
   }
 
-  public update(worker: Worker_): Observable<Worker_> {
+  public update(worker: workerModel): Observable<Worker_> {
     return this._http.put<Worker_>(`https://localhost:7141/api/Employee/${worker.id}`, worker, { 'headers': this.header });
   }
 
