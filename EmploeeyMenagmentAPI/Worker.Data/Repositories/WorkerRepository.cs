@@ -37,13 +37,7 @@ namespace Worker.Data.Repositories
             {
                 e.FirstName = worker.FirstName;
                 e.LastName = worker.LastName;
-                e.Roles.Clear();
-                worker.Roles.ForEach(r =>
-                {
-                    e.Roles.Add(r);
-                    _context.Roles.Update(r);
-                });
-                e.Roles.AddRange(worker.Roles);
+                e.Roles = worker.Roles;
                 await _context.SaveChangesAsync();
                 e.Status = worker.Status;
                 e.StartDate = worker.StartDate;
