@@ -18,8 +18,8 @@ export class AddWorkerComponent implements OnInit {
   worker: FormGroup;
   workerToAdd: Worker_;
   rolesType: RoleType[];
-  rolesTypeSelected: number[]=[-1];
-
+  rolesTypeSelected: number[] = [-1];
+  menagerId: number;
   public save() {
     this.workerToAdd = this.worker.value;
     this.workerToAdd.kind = Number(this.workerToAdd.kind);
@@ -77,7 +77,7 @@ export class AddWorkerComponent implements OnInit {
     });
   }
 
-  pushRole(i:any){
+  pushRole(i: any) {
     this.rolesTypeSelected.push(Number(i));
   }
 
@@ -101,13 +101,14 @@ export class AddWorkerComponent implements OnInit {
       'firstName': new FormControl("", Validators.required),
       'lastName': new FormControl("", Validators.required),
       'identity': new FormControl("", [Validators.required]),
-      'addres': new FormControl("", Validators.required),
+      'address': new FormControl("", Validators.required),
       'email': new FormControl("", [Validators.required, Validators.email]),
       'kind': new FormControl(0, [Validators.required]),
       'status': new FormControl(true, Validators.required),
       'stratDate': new FormControl(new Date(), [Validators.required, DateValidator]),
-      'dateOfBirth': new FormControl("", [Validators.required,DateValidator]),
-      'roles': this._fromBuilder.array([])
+      'dateOfBirth': new FormControl("", [Validators.required, DateValidator]),
+      'roles': this._fromBuilder.array([]),
+      'menagerId': new FormControl(Number(sessionStorage.getItem("userId")))
     });
 
     this._roleTypeService.getRolesType().subscribe({

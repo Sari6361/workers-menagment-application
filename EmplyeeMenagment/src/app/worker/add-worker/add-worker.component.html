@@ -78,12 +78,12 @@
                         <!-- Adress -->
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                                <input type="text" formControlName="addres" class="form-control rounded-3" id="address"
-                                    placeholder="Adress" required>
-                                <label for="address">Adress</label>
+                                <input type="text" formControlName="address" class="form-control rounded-3" id="address"
+                                    placeholder="Address" required>
+                                <label for="address">Address</label>
                             </div>
-                            <ng-container *ngIf="worker.controls['addres'].errors && worker.controls['addres'].touched">
-                                <div *ngIf="worker.controls['addres'].errors['required']" class="invalid">
+                            <ng-container *ngIf="worker.controls['address']?.errors && worker.controls['address'].touched">
+                                <div *ngIf="worker.controls['address'].errors['required']" class="invalid">
                                     please fill the adress input.
                                 </div>
                             </ng-container>

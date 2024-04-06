@@ -97,7 +97,7 @@ export class UpdateWorkerComponent {
       'firstName': new FormControl(this.worker.firstName, Validators.required),
       'lastName': new FormControl(this.worker.lastName, Validators.required),
       'identity': new FormControl(this.worker.identity, [Validators.required]),
-      'addres': new FormControl(this.worker.adress, Validators.required),
+      'addres': new FormControl(this.worker.address, Validators.required),
       'email': new FormControl(this.worker.email, [Validators.required, Validators.email]),
       'stratDate': new FormControl(this.worker.startDate, [Validators.required]),
       'roles': this._fromBuilder.array(this.worker.roles),

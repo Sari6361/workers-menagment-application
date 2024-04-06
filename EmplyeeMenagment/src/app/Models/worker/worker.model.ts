@@ -5,7 +5,7 @@ export class Worker_{
     firstName:string;
     lastName:string;
     identity:string;
-    adress:string;
+    address:string;
     email:string;
     kind:number;
     status:boolean;
