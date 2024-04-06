@@ -1,0 +1,29 @@
+.widt{
+    width: 100vw;
+}
+.click{
+    color:oklch(69.02% 0.277 332.77);
+}
+.sign{
+    background-color:oklch(69.02% 0.277 332.77);
+}
+.notbt{
+    background-color: transparent !important;
+    border: 0px !important;
+    color:oklch(69.02% 0.277 332.77);
+}
+.title{
+color:oklch(69.02% 0.277 332.77) ;
+}
+.invalid{
+    color: red;
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+.m{
+    --bs-modal-width: 727px !important;
+}
+.c{
+    margin: 4px;
+}

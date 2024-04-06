@@ -1,6 +1,6 @@
 export class Role{
 id:number;
-roleTypeId:string;
+roleTypeId:number;
 menagment:boolean;
 dateStart:Date;
 }

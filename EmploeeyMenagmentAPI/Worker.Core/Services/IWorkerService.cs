@@ -11,8 +11,8 @@ namespace Worker.Core.Services
     {
         Task<IEnumerable<Entities.Employee>>? GetWorkersAsync(bool? status, int menagerId);
         Task<Entities.Employee>? GetWorkerByIdAsync(int id);
-        Task<Entities.Employee>? AddWorkerAsync(Entities.Employee worker);
-        Task<Entities.Employee>? UpdateWorkerAsync(int id, Entities.Employee worker);
+        Task<Entities.Employee>? AddWorkerAsync(Employee worker);
+        Task<Entities.Employee>? UpdateWorkerAsync(int id, Employee worker);
         Task<Entities.Employee>? UpdateWorkerStatusAsync(int id, bool status);
     }
 }

@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { Worker_ } from '../../Models/worker/worker.model';
 import { RoleType } from '../../Models/rolesType/roleType.model';
 import { RoleTypeService } from '../roleType.service';
-import { log } from 'console';
+import { DateValidator } from '../validation';
 
 @Component({
   selector: 'app-add-worker',
@@ -18,18 +18,14 @@ export class AddWorkerComponent implements OnInit {
   worker: FormGroup;
   workerToAdd: Worker_;
   rolesType: RoleType[];
-  @ViewChild('selected') selected!: ElementRef;
-  @ViewChild('masterSelect') masterSelect!: ElementRef;
+  rolesTypeSelected: number[]=[-1];
 
   public save() {
-
     this.workerToAdd = this.worker.value;
+    this.workerToAdd.kind = Number(this.workerToAdd.kind);
+    this.workerToAdd.roles.forEach(r => r.roleTypeId = Number(r.roleTypeId))
 
-    if (this.workerToAdd.kind == 1)
-      this.workerToAdd.kind = 1;
-    else
-      this.workerToAdd.kind = 2;
-
+    console.log("add worker", this.workerToAdd);
     Swal.fire({
       title: "Do you want to save the changes?",
       showDenyButton: true,
@@ -81,19 +77,21 @@ export class AddWorkerComponent implements OnInit {
     });
   }
 
+  pushRole(i:any){
+    this.rolesTypeSelected.push(Number(i));
+  }
+
+  checkRoleExit(i: number): boolean {
+    for (const role of this.rolesTypeSelected) {
+      if (role == i)
+        return true;
+    }
+    return false;
+  }
+
+
   public close() {
     this._router.navigate([`home`]);
-  }
-
-  public selectRoleType(index:number){
-   var el = document.getElementById(`option${index}`);
-   this.selected.nativeElement.disabled = true
-   console.log("ele",  this.selected.nativeElement);
-   console.log("elemnent",this.masterSelect.nativeElement )
-   
-  }
-
-  public includeInList(index :number){
   }
 
   constructor(private _router: Router, private _workerService: WorkerService, private _roleTypeService: RoleTypeService, private _fromBuilder: FormBuilder) { }
@@ -107,12 +105,15 @@ export class AddWorkerComponent implements OnInit {
       'email': new FormControl("", [Validators.required, Validators.email]),
       'kind': new FormControl(0, [Validators.required]),
       'status': new FormControl(true, Validators.required),
-      'stratDate': new FormControl(new Date(), [Validators.required]),
-      'dateOfBirth': new FormControl("", [Validators.required]),
+      'stratDate': new FormControl(new Date(), [Validators.required, DateValidator]),
+      'dateOfBirth': new FormControl("", [Validators.required,DateValidator]),
       'roles': this._fromBuilder.array([])
     });
+
     this._roleTypeService.getRolesType().subscribe({
       next: (data) => {
+        console.log("roles", data);
+
         this.rolesType = data;
       },
       error: (err) => console.log("error in get roles type", err)

@@ -98,7 +98,8 @@
                             </div>
                             <ng-container
                                 *ngIf="worker.controls['dateOfBirth'].errors && worker.controls['dateOfBirth'].touched">
-                                <div *ngIf="worker.controls['dateOfBirth'].errors['required']" class="invalid">
+                                <div *ngIf="worker.controls['dateOfBirth'].errors['required'] "
+                                    class="invalid">
                                     please fill your date of birth.
                                 </div>
                             </ng-container>
@@ -130,17 +131,43 @@
                                     <!-- The repeated roles template -->
                                     <div class="col-10 ">
                                         <div class=" form-floating mb-3">
-                                            <!-- <input type="" formControlName="name" class="form-control rounded-3"
-                                                id="role name-{{ $index }}" placeholder="First Name" required> -->
-                                            <select formControlName="roleTypeId" class="form-control rounded-3" (change)="selectRoleType($index)"
-                                                id="role name-{{ $index }}" placeholder="First Name" >
-                                                <option value=0 >choose role...</option>
+                                            <select formControlName="roleTypeId" class="form-control rounded-3"
+                                                #selectList (change)="pushRole(selectList.value)"
+                                                id="role name-{{ $index }}">
+                                                <option value=-1>choose role...</option>
                                                 @for (rt of rolesType; track $index) {
-                                                    <option [disabled]="" value={{$index+1}} id="option-{{$index+1}}">{{rt.name}}</option>
+                                                <option [disabled]="checkRoleExit(rt.id)" value={{$index+1}}
+                                                    id="option-{{$index+1}}">{{rt.name}}</option>
                                                 }
                                             </select>
-                                            <label for="role-{{ $index }}"> Role Name </label>
+                                            <label for="role-{{ $index }}">Role Type </label>
                                         </div>
+                                        <ng-container
+                                            *ngIf="roles().controls[$index].get('roleTypeId').errors && roles().controls[$index].get('roleTypeId').touched">
+                                            <div *ngIf="roles().controls[$index].get('roleTypeId').errors['required']"
+                                                class="invalid">
+                                                please fill your Role-Type.
+                                            </div>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-10">
+                                        <div class="form-floating mb-3">
+                                            <input type="date" placeholder="Start Working Date "
+                                                class="form-control rounded-3 " formControlName="stratDate"
+                                                id="stratDate">
+                                            <label for="stratDate">Start Working Date</label>
+                                        </div>
+                                        <ng-container
+                                            *ngIf="roles().controls[$index].get('stratDate').errors && roles().controls[$index].get('stratDate').touched">
+                                            <div *ngIf="roles().controls[$index].get('stratDate').errors['required'] ;else wrong"
+                                                class="invalid">
+                                                please fill your start working date.
+                                            </div>
+                                            <ng-template #wrong>
+                                                <div class="invalid"> Date must be later then today.</div>
+                                            </ng-template>
+                                        </ng-container>
                                     </div>
 
                                     <div class="form-check">
@@ -150,6 +177,7 @@
                                             Is the position administrative?
                                         </label>
                                     </div>
+
                                     <br>
                                     <div class=" d-md-flex justify-content-md-end">
                                         <button class="btn rounded-5 sign  me-md-2"
@@ -171,7 +199,7 @@
                     <br>
 
                     <button class="w-100 mb-2 btn btn-lg rounded-3 sign" type="submit" (click)="save()"
-                        [disabled]="!worker.valid">Add worker</button>
+                      >Add worker</button>
                     <!-- <hr class="my-4">
                     <h2 class="fs-5 fw-bold mb-3"> If you have already registered in <button class="notbt"
                             (click)="login()">Click here</button> </h2> -->

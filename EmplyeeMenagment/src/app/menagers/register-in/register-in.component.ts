@@ -20,6 +20,7 @@ export class RegisterInComponent implements OnInit {
   }
 
   public save() {
+    let timerInterval;
     this.menager = this.registerMenager.value;
     console.log("save", this.menager);
 
@@ -34,16 +35,34 @@ export class RegisterInComponent implements OnInit {
         text: "name and passeword had already been please change",
         icon: "error"
       });
-    });
+    }).then((data) =>
+    // improve
       Swal.fire({
-        title: `Welcome! ${this.menager.firstName}`,
-        text: "You've register in successfully!",
-        icon: "success"
-      });
-      this._router.navigate([`/`]);
+        title: `Hello ${this.menager.firstName}`,
+        html: "load.. ",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+        console.log(data);
+        this._router.navigate([``]);
+      }))
   }
 
-  public close(){
+  public close() {
     this._router.navigate([`home`]);
   }
 

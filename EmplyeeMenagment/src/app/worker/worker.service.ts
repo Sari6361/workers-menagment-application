@@ -17,8 +17,6 @@ export class WorkerService {
   }
 
   public add(worker: Worker_): Observable<Worker_> {
-    console.log(this.header);
-    
     return this._http.post<Worker_>(`https://localhost:7141/api/Employee`, worker,{ 'headers': this.header });
   }
 
@@ -27,7 +25,7 @@ export class WorkerService {
   }
 
   public updateStatus(id: number, status: boolean): Observable<Worker_> {
-    return this._http.put<Worker_>(`https://localhost:7141/api/Employee/${id}/${status}`, { 'headers': this.header });
+    return this._http.put<Worker_>(`https://localhost:7141/api/Employee/${id}/${status}`,"", { 'headers': this.header });
   }
 
   constructor(private _http: HttpClient) { }

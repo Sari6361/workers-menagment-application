@@ -25,6 +25,7 @@ namespace Worker.Data.Repositories
 
         public async Task<Employee> AddWorkerAsync(Employee worker)
         {
+            _context.ChangeTracker.QueryTrackingBehavior =QueryTrackingBehavior.NoTracking;
             await _context.Workers.AddAsync(worker);
             await _context.SaveChangesAsync();
             return worker;

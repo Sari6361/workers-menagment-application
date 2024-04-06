@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 
 @Component({
@@ -6,7 +6,11 @@ import { HeaderComponent } from "../header/header.component";
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnChanges {
+
+    ngOnChanges(changes: SimpleChanges): void {
+        document.location.reload();
+    }
     name: string;
 
     ngOnInit(): void {

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from '../../Models/menager/login.model';
 import { MenagerService } from '../menager.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-log-in',
@@ -13,14 +14,28 @@ export class LogInComponent implements OnInit {
 
   userLogin: FormGroup;
   private _user: LoginModel;
-  
+
 
   public logIn() {
-    this._user= this.userLogin.value;
-    
+    this._user = this.userLogin.value;
+
     this._menagerService.logIn(this._user).then((data) => {
-      console.log(data);
-      this._router.navigate([`/`]);
+      
+      this._router.navigate([``]);
+      Swal.fire({
+        title: `Hello ${this._user.userName}`,
+        html: "load.. ",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      }).then(() => {
+        // document.URL.replaceAll("/menager/login","/home");
+        console.log(document.URL);
+        document.location.reload();
+        // document.write('<META HTTP-EQUIV="REFRESH" >');
+      });
     });
   }
 
@@ -28,7 +43,7 @@ export class LogInComponent implements OnInit {
     this._router.navigate([`menager/signin`]);
   }
 
-  public close(){
+  public close() {
     this._router.navigate([`home`]);
   }
 

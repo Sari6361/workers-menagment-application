@@ -55,6 +55,6 @@
 
   <br><br>
   <div *ngIf="toUpdate" class="container">
-    <app-update-worker [worker]="selectedWorkerEdit" />
+    <app-update-worker [worker]="selectedWorkerEdit" (closeEvent)="closeUpdate()" />
   </div>
 </div>
