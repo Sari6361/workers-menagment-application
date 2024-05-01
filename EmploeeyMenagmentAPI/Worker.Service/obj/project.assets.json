@@ -231,11 +231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Service\\Worker.Service.csproj",
+      "projectUniqueName": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Service\\Worker.Service.csproj",
       "projectName": "Worker.Service",
-      "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Service\\Worker.Service.csproj",
+      "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Service\\Worker.Service.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Service\\obj\\",
+      "outputPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -256,8 +256,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
-              "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj"
+            "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
+              "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj"
             }
           }
         }

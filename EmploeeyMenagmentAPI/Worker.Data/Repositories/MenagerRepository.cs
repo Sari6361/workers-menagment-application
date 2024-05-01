@@ -21,12 +21,12 @@ namespace Worker.Data.Repositories
         public async Task<Menager> GetMenagerByIdAsync(int id)
         {
             var menagers = _context.Menagers.Include(u => u.Workers);
-            var m = await menagers.Include(w => w.Workers).ThenInclude(w => w.Roles).FirstAsync(u => u.Id == id);
+            var m = await menagers.Include(w => w.Workers).FirstAsync(u => u.Id == id);
             return m;
         }
         public async Task<Menager> GetMenagerByNameAndPasswordAsync(string name, string password)
         {
-            var menagers = await _context.Menagers.Include(w => w.Workers).ThenInclude(w => w.Roles).ToListAsync();
+            var menagers = await _context.Menagers?.Include(w => w.Workers).ToListAsync();
             return menagers.Find(m => m.UserName.Equals(name) && m.Password.Equals(password));
         }
 

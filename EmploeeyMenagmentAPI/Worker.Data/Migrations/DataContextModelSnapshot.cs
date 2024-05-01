@@ -131,7 +131,7 @@ namespace Worker.Data.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Worker.Core.Entities.RoleType", b =>

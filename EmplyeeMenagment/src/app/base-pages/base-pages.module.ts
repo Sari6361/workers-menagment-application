@@ -14,6 +14,6 @@ import { MenagerService } from '../menagers/menager.service';
     CommonModule, RouterModule
   ],
   providers:[MenagerService],
-   exports: [HeaderComponent]
+  exports: [HeaderComponent]
 })
 export class BasePagesModule { }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tu7Zba1Q2OHJNtfosnZ8iPKb/fe6r2Nty86FBPSgZl5VogDkZYO0r/nEHm2cVNeOMgxsCCrlNCdm9og4xzvX8w==",
+  "dgSpecHash": "IwcJQWI5TwliCydmDgM2GU4bIzdrt+lKDFs0+qVaKQcA5Bhi47qdAeUYIaUInlPSY4u99G9vRpF/CGZ0g3mNZg==",
   "success": true,
-  "projectFilePath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
+  "projectFilePath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

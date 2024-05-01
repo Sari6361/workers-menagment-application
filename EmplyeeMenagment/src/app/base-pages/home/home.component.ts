@@ -1,5 +1,4 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { HeaderComponent } from "../header/header.component";
 
 @Component({
     selector: 'app-home',

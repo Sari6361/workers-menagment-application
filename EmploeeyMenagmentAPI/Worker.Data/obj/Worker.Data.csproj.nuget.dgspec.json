@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj": {}
+    "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj": {}
   },
   "projects": {
-    "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
+    "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
+        "projectUniqueName": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
         "projectName": "Worker.Core",
-        "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
+        "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\obj\\",
+        "outputPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj": {
+    "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj",
+        "projectUniqueName": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj",
         "projectName": "Worker.Data",
-        "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj",
+        "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Data\\Worker.Data.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Data\\obj\\",
+        "outputPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
-                "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj"
+              "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj": {
+                "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj"
               }
             }
           }

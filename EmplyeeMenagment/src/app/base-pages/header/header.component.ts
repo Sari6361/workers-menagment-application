@@ -1,13 +1,14 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { OnSameUrlNavigation, Router } from '@angular/router';
+import {   Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { MenagerService } from '../../menagers/menager.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+   styleUrl: './header.component.scss',
 })
+
 export class HeaderComponent implements OnInit {
 
   connected: boolean;

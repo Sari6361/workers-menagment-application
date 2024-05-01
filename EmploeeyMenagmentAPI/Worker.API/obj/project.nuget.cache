@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZmoO1Xx4EC5+Gx2/5XPFjsLLDBBaCdJr9kweU6/O5yDJzg6d5UqrQYqzC/2N/DfSwS1OSMQoD3/GqNubK5+qqA==",
+  "dgSpecHash": "noBhJXasOSOifDeBLoFyJdC1QxKHiTvaV5+ueZOOgOyOSEUkLFAxCf4lkLLDql+BU+nwngiQcjAri2R7nUW1xw==",
   "success": true,
-  "projectFilePath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.API\\Worker.API.csproj",
+  "projectFilePath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.API\\Worker.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -9,7 +9,7 @@ namespace Worker.Data
         public DbSet<Menager> Menagers { get; set; }
 
         public DbSet<Employee> Workers { get; set; }
-      //  public DbSet<Role> Roles { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         public DbSet<RoleType> RolesType { get; set; }
 

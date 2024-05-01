@@ -35,3 +35,16 @@ E:\הגשות\פרקטיקום\IndependentEmployeeManagement\EmploeeyMenagmentAP
 E:\הגשות\פרקטיקום\IndependentEmployeeManagement\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.pdb
 E:\הגשות\פרקטיקום\IndependentEmployeeManagement\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\ref\Worker.Core.dll
 E:\הגשות\פרקטיקום\IndependentEmployeeManagement\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.sourcelink.json
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\bin\Debug\net8.0\Worker.Core.deps.json
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\bin\Debug\net8.0\Worker.Core.dll
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\bin\Debug\net8.0\Worker.Core.pdb
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.csproj.AssemblyReference.cache
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.AssemblyInfoInputs.cache
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.AssemblyInfo.cs
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.csproj.CoreCompileInputs.cache
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.sourcelink.json
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.dll
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\refint\Worker.Core.dll
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\Worker.Core.pdb
+F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Core\obj\Debug\net8.0\ref\Worker.Core.dll

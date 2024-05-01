@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Worker.Data
-build_property.ProjectDir = E:\הגשות\פרקטיקום\IndependentEmployeeManagement\EmploeeyMenagmentAPI\Worker.Data\
+build_property.ProjectDir = F:\workers-menagment-application\EmploeeyMenagmentAPI\Worker.Data\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

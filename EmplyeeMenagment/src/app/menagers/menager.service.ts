@@ -2,10 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../Models/menager/login.model';
 import { Signin } from '../Models/menager/signin.model';
-import { Observable, retry } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Menager } from '../Models/menager/menager.model';
 import { Worker_ } from '../Models/worker/worker.model';
-import {workerModel} from '../Models/worker/WorkerModel.model'
 
 @Injectable({
   providedIn: 'root'

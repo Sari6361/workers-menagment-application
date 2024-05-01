@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WorkerService } from '../worker.service';
 import { Worker_ } from '../../Models/worker/worker.model';
 import * as XLSX from 'xlsx';
@@ -13,7 +13,6 @@ export class AllWorkersComponent implements OnInit {
 
   workers: Worker_[];
   selectedWorkerEdit: Worker_;
-  selectedWorkerDetailes: Worker_;
 
   toUpdate: boolean = false;
 
@@ -52,9 +51,6 @@ export class AllWorkersComponent implements OnInit {
     });
   }
 
-  moreDetailes(index: number) {
-    this.selectedWorkerDetailes = this.workers.at(index);
-  }
 
   search(value: string) {
     //filter the workers list

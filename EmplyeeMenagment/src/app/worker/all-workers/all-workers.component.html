@@ -6,7 +6,7 @@
     <button class="btn btn-outline-light bt" (click)="exportList()">Export List</button>
 
     <form class="d-flex justify-content-end" role="search">
-      <input class="form-control search" type="search" placeholder="Search...." aria-label="Search" #searchText>
+      <input class=" bt search" type="search" placeholder="  Search...." #searchText>
       <button class="btn btn-outline-light bt" (click)="search(searchText.value)" type="submit">Search</button>
       <button class="btn btn-outline-light bt" (click)="reset()" type="submit">Reset</button>
     </form>
@@ -25,7 +25,6 @@
         <th scope="col">Start Date</th>
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -36,10 +35,6 @@
         <td>{{worker.lastName}}</td>
         <td>{{worker.identity}}</td>
         <td>{{worker.startDate | date: "dd-MM-YYYY" }}</td>
-        <!--detailes-->  
-          <td>
-            <button class="btn  btn-primary mr-1 updatebtn" (click)="moreDetailes($index)">More Details</button>
-          </td>
         <td>
           <button class="btn btn-primary mr-1 delbtn" (click)="deleteWorker(worker.id)"> <i
               class="bi bi-trash3-fill"></i></button>

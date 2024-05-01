@@ -213,11 +213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
+      "projectUniqueName": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
       "projectName": "Worker.Core",
-      "projectPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
+      "projectPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\Worker.Core.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\הגשות\\פרקטיקום\\IndependentEmployeeManagement\\EmploeeyMenagmentAPI\\Worker.Core\\obj\\",
+      "outputPath": "F:\\workers-menagment-application\\EmploeeyMenagmentAPI\\Worker.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
